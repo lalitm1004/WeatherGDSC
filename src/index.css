@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.app {
+    background: linear-gradient(
+        110deg,
+        hsl(240deg 100% 20%) 0%,
+        hsl(247deg 98% 20%) 16%,
+        hsl(251deg 96% 20%) 28%,
+        hsl(255deg 93% 21%) 38%,
+        hsl(257deg 90% 21%) 46%,
+        hsl(259deg 86% 21%) 53%,
+        hsl(261deg 82% 22%) 60%,
+        hsl(263deg 78% 22%) 69%,
+        hsl(264deg 75% 23%) 81%,
+        hsl(266deg 71% 23%) 100%
+    );
+}
