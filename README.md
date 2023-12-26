@@ -10,6 +10,6 @@ A ReactJS App built for GDSC recruitments 2023.
 # How to run locally
 1. Clone this repository
 2. Run `npm install`
-3. Run `bash startup.bash` and paste in your OpenWeatherMap API key when prompted.
+3. Run `bash startup.bash` and paste in your [OpenWeatherMap API](https://openweathermap.org/api) key when prompted
 4. Run `npm start`
 5. Go to `http://localhost:3000`
