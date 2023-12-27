@@ -1,7 +1,7 @@
 import React from 'react'
 
 // NextUI Components
-import { CardBody, CircularProgress, Divider, Image } from '@nextui-org/react';
+import { CardBody, CircularProgress, Divider, Image, Switch } from '@nextui-org/react';
 
 import locationIcon from './assets/location_on.svg'
 
@@ -12,6 +12,7 @@ class ResultBar extends React.Component {
         this.state = {
             weatherData : null,
             errorMessage : null,
+            isCelsius : true,
         }
     }
 
@@ -46,18 +47,21 @@ class ResultBar extends React.Component {
         }).join(" ")
         return capitalizedString;
     }
+
+    convertToFahrenheit(tempInCelsius) {
+        const fahrenheit = ((tempInCelsius * 9 / 5) + 32).toFixed(2);
+        return fahrenheit
+    }
     
     render() {
-        console.log(this.state)
         return (
             <CardBody className=' text-4xl'>
                 {this.props.locationInput === "" ? (
                     <></>
                 ) : this.state.errorMessage ? (
-                    
-                        <p className='text-center mb-2'>
-                            Error: {this.capitalizeString(this.state.errorMessage)}
-                        </p>
+                    <p className='text-center mb-2'>
+                        Error: {this.capitalizeString(this.state.errorMessage)}
+                    </p>
                 ) : this.state.weatherData ? (
                     <div className="flex flex-col justify-center">
                         <div className="flex justify-center my-2">
@@ -69,8 +73,19 @@ class ResultBar extends React.Component {
                             <p className="pt-2">{this.state.weatherData.name}</p>
                         </div>
                         <Divider />
-                        <div className="flex flex-col justify-center text-center my-2">
-                            <p className='my-2'>{this.state.weatherData.main.temp}°C</p>
+                        <div className="flex flex-col justify-center items-center text-center my-2">
+                            <div className="flex justify-center">
+                                {this.state.isCelsius ? (
+                                    this.state.weatherData.main.temp + "°C"
+                                ) : (
+                                    this.convertToFahrenheit(this.state.weatherData.main.temp) + "°F"
+                                )}
+                                <Switch
+                                    className="mx-3 my-2"
+                                    isSelected={!this.state.isCelsius}
+                                    onValueChange={() => {this.setState({isCelsius : !this.state.isCelsius})}}
+                                />
+                            </div>
                             <p className="my-2">{this.capitalizeString(this.state.weatherData.weather[0].description)}</p>
                         </div>
                         <Divider />
