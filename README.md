@@ -10,6 +10,10 @@ A ReactJS App built for GDSC recruitments 2023.
 1. Clone this repository
 2. Run `npm install`
 3. Run `bash startup.bash` and paste in your [OpenWeatherMap API](https://openweathermap.org/api) key when prompted
+    - In the off chance that Step 3 doesn't work. Create a `secrets.json` in `src/.` directory. Populate it like so : 
+        ```
+        {"api_key" : "<openweathermapAPIkey>"}
+        ```
 4. Run `npm start`
 5. Go to `http://localhost:3000`
 
