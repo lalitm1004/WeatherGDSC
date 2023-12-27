@@ -1,6 +1,8 @@
 # WeatherGDSC
 A ReactJS App built for GDSC recruitments 2023.
 
+# I AM SO SORRY, BUT THIS APP WAS BUILT WITH NODE 9.5.1
+
 # Features
 - Lookup the weather of any city
 - Change between Celsius and Fahrenheit
